@@ -58,15 +58,15 @@ $(document).ready(function(){
 
 	        	for (var i = 0; i < results.length; i++) {
 	        		var gifDiv = $("<div>");
-	        		gifDiv.addClass('celebImage');
 	        		var rating = results[i].rating;
 	        		var ratingParagraph = $("<p>")
 	        		ratingParagraph.text("Rating: " + rating);
 	            	var celebImage = $("<img>");
+	            	celebImage.addClass('celebImage');
 	            	var stillImage = results[i].images.fixed_height_still.url
 	            	var animatedImage = results[i].images.fixed_height.url
 	            	celebImage.attr("data-still", stillImage);
-	            	celebImage.attr("data-animated", animatedImage);
+	            	celebImage.attr("data-animate", animatedImage);
 	            	celebImage.attr("data-state", "still");
 	            	celebImage.attr("src", stillImage);
 	            	gifDiv.prepend(ratingParagraph);
@@ -74,13 +74,29 @@ $(document).ready(function(){
 	            	$("#celebrities").prepend(gifDiv);
 	            	//console.log(response);
 	          	}
-
+	          	
+	        	$(".celebImage").on('click', function () {
+	        		var state = $(this).attr('data-state');  
+	    			if (state === "still") {
+          				$(this).attr('data-state', 'animate');
+          				$(this).attr('src', $(this).attr('data-animate'));
+          				console.log($(this).attr('data-state'));	  
+        			};
+        
+        			if (state === "animate") {
+          				$(this).attr('data-state', 'still');
+          				$(this).attr('src', $(this).attr('data-still'));
+        			};
+	        	});
 	        });
 	    });
 	}
+
 
 	// Function Calls
 	// =====================================================================================
 
 	init();
+
+
 });
