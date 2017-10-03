@@ -41,7 +41,18 @@ $(document).ready(function(){
 			$celebButton.addClass("celebButton");
 			$celebButton.text(celebrities[i]);
 			$('#celebrityButtons').append($celebButton);
-		}
+		};
+
+		// Add celebrity button
+		$("#addCelebrity").on("click", function() {
+			console.log("Clicked!");
+			var userCeleb = $("#celebrity-input").val().trim();
+			var $celebButton = $('<button>'); 
+			$celebButton.attr("data-celeb", userCeleb);
+			$celebButton.addClass("celebButton");
+			$celebButton.text(userCeleb);
+			$('#celebrityButtons').append($celebButton);
+		});
 
 		// When celebrity button is clicked, add 10 images using Giphy API
 		$(".celebButton").on("click", function() {
