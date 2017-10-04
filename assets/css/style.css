@@ -25,24 +25,7 @@ body {
 	color: #e2e0e0;
 }
 
-/* Colors
-––––––––––––––––––––––––––––––––––––––––––––––––––
 
-   * Container: #23afa8
-   * Logo font color: 
-   * Font color: #150f26
-   * Button color: #b72470
-
-
-/* Clearing
-–––––––––––––––––––––––––––––––––––––––––––––––––– 
-
-.clearfix {
-  content: "";
-  display: block;
-  clear: both; 
-}
-*/
 /* Custom Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -70,6 +53,8 @@ body {
   background-image: linear-gradient(to bottom, #27a392, #229380);
 }
 
+/* ===== User Submission Area ===== */
+
 input[type=text] {
 	display: block;
 }
@@ -82,45 +67,13 @@ input[type=submit] {
 	margin: 5px 0px;
 }
 
+/* ===== Gifs ===== */
+
 .gifDiv {
 	float: left;
 	margin: 10px 5px;
 }
 
-/*
-.wrapper {
-	width: 80%;
-	background-color: #23afa8;
-	min-height: 600px;
-	margin: 80px auto;
-	border: 3px solid #000;
-}
 
-main > div > div {
-	text-align: center;
-	margin-top: 60px;
-}
-
-main > div > div:last-child {
-	margin-bottom: 60px;
-}
-
-/* ===== Timer ===== */
-
-
-
-/* ===== Button ===== */
-
-
-
-/* ===== Questions ===== */
-
-
-
-/* ===== Answers ===== */
-
-
-
-/* ===== Final Screen ===== */
 
 
