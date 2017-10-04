@@ -1,8 +1,6 @@
 // GifTastic | By Juliette Rapala
 // =====================================================================================
 
-$(document).ready(function(){
-
 	// Variables 
 	// =====================================================================================
 
@@ -16,7 +14,7 @@ $(document).ready(function(){
 		"Taylor Swift",
 		"Beyonce",
 		"Jay-Z",
-		"Jonah Hill",
+		"Nicholas Cage",
 		"Dwayne Johnson",
 		"Drake",
 		"Jennifer Lawrence",
@@ -34,28 +32,37 @@ $(document).ready(function(){
 	// =====================================================================================
 
 	// Create buttons on top of screen using array of celebrities 
-	function init() {
+	function createRowOfButtons() {
+		$('#celebrityButtons').empty();
 		for (var i = 0; i < celebrities.length; i++) {
 			var $celebButton = $('<button>');
 			$celebButton.attr("data-celeb", celebrities[i]);
 			$celebButton.addClass("celebButton");
+			$celebButton.addClass("btn");
 			$celebButton.text(celebrities[i]);
 			$('#celebrityButtons').append($celebButton);
 		};
+	}
+
+	$(document).ready(function(){
+
+		createRowOfButtons();
 
 		// Add celebrity button
-		$("#addCelebrity").on("click", function() {
-			console.log("Clicked!");
+		$("#addCelebrity").on("click", function(e) {
 			var userCeleb = $("#celebrity-input").val().trim();
-			var $celebButton = $('<button>'); 
-			$celebButton.attr("data-celeb", userCeleb);
-			$celebButton.addClass("celebButton");
-			$celebButton.text(userCeleb);
-			$('#celebrityButtons').append($celebButton);
+			// Check if user entered input is in array
+			if (celebrities.indexOf(userCeleb) >= 0) {
+				alert("That celebrity button already exists!\nLet's get another celebrity in here!");
+			// Check if user entered input to prevent empty buttons
+			} else if (userCeleb.length > 0) {
+				celebrities.push(userCeleb);
+				createRowOfButtons();
+			} 
 		});
 
 		// When celebrity button is clicked, add 10 images using Giphy API
-		$(".celebButton").on("click", function() {
+		$("#celebrityButtons").delegate(".celebButton", "click", function() {
 	    	var celeb = $(this).attr("data-celeb");
 	    	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + celeb + "&api_key=Su8yLiz6okgSl5WLjpwgFOMYO6U1Zf39&limit=10";
 
@@ -66,9 +73,9 @@ $(document).ready(function(){
 	        
 	        .done(function(response) {
 	        	var results = response.data;
-
 	        	for (var i = 0; i < results.length; i++) {
 	        		var gifDiv = $("<div>");
+	        		gifDiv.addClass('gifDiv')
 	        		var rating = results[i].rating;
 	        		var ratingParagraph = $("<p>")
 	        		ratingParagraph.text("Rating: " + rating);
@@ -80,34 +87,26 @@ $(document).ready(function(){
 	            	celebImage.attr("data-animate", animatedImage);
 	            	celebImage.attr("data-state", "still");
 	            	celebImage.attr("src", stillImage);
-	            	gifDiv.prepend(ratingParagraph);
-	            	gifDiv.prepend(celebImage);
+	            	gifDiv.append(ratingParagraph);
+	            	gifDiv.append(celebImage);
 	            	$("#celebrities").prepend(gifDiv);
-	            	//console.log(response);
 	          	}
 	          	
 	        	$(".celebImage").on('click', function () {
 	        		var state = $(this).attr('data-state');  
 	    			if (state === "still") {
-          				$(this).attr('data-state', 'animate');
-          				$(this).attr('src', $(this).attr('data-animate'));
-          				console.log($(this).attr('data-state'));	  
-        			};
-        
-        			if (state === "animate") {
-          				$(this).attr('data-state', 'still');
-          				$(this).attr('src', $(this).attr('data-still'));
-        			};
+	      				$(this).attr('data-state', 'animate');
+	      				$(this).attr('src', $(this).attr('data-animate'));  
+	    			};
+	    
+	    			if (state === "animate") {
+	      				$(this).attr('data-state', 'still');
+	      				$(this).attr('src', $(this).attr('data-still'));
+	    			};
 	        	});
 	        });
 	    });
-	}
+	});
 
 
-	// Function Calls
-	// =====================================================================================
-
-	init();
-
-
-});
+// $("#mainbuttons").delegate(".buttons", "click" function)

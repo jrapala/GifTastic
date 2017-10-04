@@ -1,0 +1,126 @@
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+body {
+	font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 16px; 
+	line-height: 1.2em;
+	letter-spacing: .025em;
+}
+
+.btn {
+	letter-spacing: .025em;
+	color: #fff;
+}
+
+.btn:hover {
+	color: #e2e0e0;
+}
+
+.btn:active {
+	color: #e2e0e0;
+}
+
+.btn:focus {
+	color: #e2e0e0;
+}
+
+/* Colors
+––––––––––––––––––––––––––––––––––––––––––––––––––
+
+   * Container: #23afa8
+   * Logo font color: 
+   * Font color: #150f26
+   * Button color: #b72470
+
+
+/* Clearing
+–––––––––––––––––––––––––––––––––––––––––––––––––– 
+
+.clearfix {
+  content: "";
+  display: block;
+  clear: both; 
+}
+*/
+/* Custom Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+header {
+	padding: 20px 5px;
+}
+
+body {
+	background: url("../images/whitediamond.png");
+}
+
+/* ===== Buttons ===== */
+
+.btn {
+  background: #34d9c3;
+  background-image: linear-gradient(to bottom, #34d9c3, #2bb8a0);
+  border-radius: 5px;
+  text-shadow: 1px 1px 3px #666666;
+  font-size: 16px;
+  padding: 5px 10px 5px 10px;
+  margin: 5px;
+}
+
+.btn:hover {
+  background-image: linear-gradient(to bottom, #27a392, #229380);
+}
+
+input[type=text] {
+	display: block;
+}
+
+input[type=submit] {
+	margin-left: 0px;
+}
+
+.inputArea > input {
+	margin: 5px 0px;
+}
+
+.gifDiv {
+	float: left;
+	margin: 10px 5px;
+}
+
+/*
+.wrapper {
+	width: 80%;
+	background-color: #23afa8;
+	min-height: 600px;
+	margin: 80px auto;
+	border: 3px solid #000;
+}
+
+main > div > div {
+	text-align: center;
+	margin-top: 60px;
+}
+
+main > div > div:last-child {
+	margin-bottom: 60px;
+}
+
+/* ===== Timer ===== */
+
+
+
+/* ===== Button ===== */
+
+
+
+/* ===== Questions ===== */
+
+
+
+/* ===== Answers ===== */
+
+
+
+/* ===== Final Screen ===== */
+
+
